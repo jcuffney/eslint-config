@@ -1,0 +1,28 @@
+version: 2
+
+defaults: &defaults
+  docker: 
+    - image: jcuffney/node-ci-image:1.0.25
+  working_directory: ~/repo
+
+
+jobs:
+
+  publish:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: Publish To NPM
+          command: | 
+            npm publish
+
+workflows:
+  version: 2
+  validate:
+    jobs:
+      - publish:
+          context: AWS
+          filters:
+            branches:
+              only: master
