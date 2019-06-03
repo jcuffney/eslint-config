@@ -14,7 +14,8 @@ jobs:
       - checkout
       - run:
           name: Publish To NPM
-          command: | 
+          command: |
+            npm login
             npm publish
 
 workflows:
@@ -22,7 +23,7 @@ workflows:
   validate:
     jobs:
       - publish:
-          context: AWS
+          context: NPM
           filters:
             branches:
               only: master
