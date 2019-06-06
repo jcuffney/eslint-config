@@ -17,9 +17,12 @@ extends: @cuffney/eslint-config/node
 
 #### Configs
 
-| config       | extends              | with                                 |
-|--------------|----------------------|--------------------------------------|
-| `node`       | `eslint:recommended` |  `node`                              |
+| config       | extends              |
+|--------------|----------------------|
+| `node`       | `eslint:recommended` |
+| `node-test`  | `eslint:recommended` |`
+| `react`      | `eslint:recommended` |`
+| `react-test` | `eslint:recommended` |
 
 <!-- Markdown link & img dfn's -->
 [circle-ci-badge]: https://circleci.com/gh/jcuffney/cuffney.com.svg?style=svg
