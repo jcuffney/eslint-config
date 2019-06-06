@@ -1,4 +1,4 @@
-version: 2
+version: 2.1
 
 defaults: &defaults
   docker: 
@@ -28,6 +28,7 @@ jobs:
 
 
   test:
+    <<: *defaults
     steps:
       - checkout
       - restore_cache:
@@ -73,6 +74,10 @@ workflows:
             - deps
       - publish:
           context: NPM
+          requires:
+            - deps
+            - test
+            - build
           filters:
             branches:
               only: master
