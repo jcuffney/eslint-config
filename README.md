@@ -1,6 +1,7 @@
 # eslint-config
 
 [![CircleCI][circle-ci-badge]][circle-ci-url]
+[![npm version][npm-version-badge]][npm-version-url]
 
 My opinionated ESLint configs for JavaScript/Node projects.
 
@@ -27,3 +28,7 @@ extends: @cuffney/eslint-config/node
 <!-- Markdown link & img dfn's -->
 [circle-ci-badge]: https://circleci.com/gh/jcuffney/cuffney.com.svg?style=svg
 [circle-ci-url]: https://circleci.com/gh/jcuffney/cuffney.com
+[npm-version-badge]: http://img.shields.io/npm/v/REPO.svg?style=flat
+[npm-version-url]: https://npmjs.org/package/@cuffney/eslint-config
+
+[![npm version]()]( "View this project on npm")
