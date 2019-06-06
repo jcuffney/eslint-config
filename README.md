@@ -1,5 +1,7 @@
 # eslint-config
 
+[![CircleCI][circle-ci-badge]][circle-ci-url]
+
 My opinionated ESLint configs for JavaScript/Node projects.
 
 #### 1. Install
@@ -19,3 +21,6 @@ extends: @cuffney/eslint-config/node
 |--------------|----------------------|--------------------------------------|
 | `node`       | `eslint:recommended` |  `node`                              |
 
+<!-- Markdown link & img dfn's -->
+[circle-ci-badge]: https://circleci.com/gh/jcuffney/cuffney.com.svg?style=svg
+[circle-ci-url]: https://circleci.com/gh/jcuffney/cuffney.com
