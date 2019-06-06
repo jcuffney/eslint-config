@@ -8,20 +8,66 @@ defaults: &defaults
 
 jobs:
 
+  deps: 
+    <<: *defaults
+    steps:
+      - checkout
+
+      # Download and cache dependencies
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+            # fallback to using the latest cache if no exact match is found
+            - v1-dependencies-
+
+      - run: npm ci
+
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}
+
+
+  test:
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run test
+
+  build: 
+    <<: *defaults
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "package.json" }}
+      - run: npm run build
+      - save_cache:
+          paths:
+            - build
+          key: v1-build-{{ checksum "package.json" }}
+
+
   publish:
     <<: *defaults
     steps:
       - checkout
       - run:
-          name: Publish To NPM
-          command: |
-            npm login
-            npm publish
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
 
 workflows:
   version: 2
   validate:
     jobs:
+      - deps
+      - test
+      - build
       - publish:
           context: NPM
           filters:
