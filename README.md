@@ -18,12 +18,14 @@ extends: @cuffney/eslint-config/node
 
 #### Configs
 
-| config       | extends              |
-|--------------|----------------------|
-| `node`       | `eslint:recommended` |
-| `node-test`  | `eslint:recommended` |`
-| `react`      | `eslint:recommended` |`
-| `react-test` | `eslint:recommended` |
+| config       | extends                                                  |
+|--------------|----------------------------------------------------------|
+| `node`       | `eslint-config-standard`                                 |
+| `node-test`  | `./node`                                                 |
+| `react`      | `eslint-config-standard`, `eslint-config-standard-react` |
+| `react-test` | `./react`                                                |
+| `react-native` | `eslint:config-standard`                               |
+| `react-native-test` | `./react-native`                                  |
 
 <!-- Markdown link & img dfn's -->
 [circle-ci-badge]: https://circleci.com/gh/jcuffney/cuffney.com.svg?style=svg

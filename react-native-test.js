@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  extends: './react.js',
+  extends: './react-native.js',
 
   env: {
     mocha: true,
